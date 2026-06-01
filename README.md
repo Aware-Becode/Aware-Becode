@@ -173,3 +173,33 @@ Fetch each CSV individually:
 
 - This approach highlights skills that balance market demand and financial reward. It weights core skills appropriately instead of letting rare, outlier skills distort the results.
 - The natural log transformation ensures that both high-salary and widely in-demand skills surface as the most practical and valuable to learn for data engineering careers.
+
+## 👥 Teams & Submission
+
+Students are split into **5 teams**. Each team has a dedicated folder at the root of the repository, with one sub-folder per exercise:
+
+```
+Team 1/
+├── Exercise 1/
+├── Exercise 2/
+└── Exercise 3/
+Team 2/
+├── Exercise 1/
+├── Exercise 2/
+└── Exercise 3/
+...
+Team 5/
+├── Exercise 1/
+├── Exercise 2/
+└── Exercise 3/
+```
+
+### 📌 Submission rules
+
+- Every team **must commit its solutions in the folder matching its team number and the exercise number**.
+  - Example: Team 3's solution for Exercise 2 goes in `Team 3/Exercise 2/`.
+- Add your SQL files, notebooks, or any supporting files inside the right sub-folder.
+- **Do not modify another team's folder.** Stay inside your own team's directory.
+- Follow the [🚀 Git Workflow](#-git-workflow--mini-tutorial) above: branch → commit → pull request → review → merge.
+
+> 💡 The `.gitkeep` files are placeholders that let Git track empty folders. You can leave them or delete them once you have committed your own files in the folder.

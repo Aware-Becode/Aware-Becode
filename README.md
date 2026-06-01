@@ -112,6 +112,34 @@ This project analyzes a **data warehouse** built using a star schema design. The
 
 By querying across these interconnected tables, I extracted insights about skill demand, salary patterns, and optimal skill combinations for data engineering roles.
 
+## 📦 Data Sources
+
+You have **two options** to grab the dataset.
+
+### Option A — Bundle (Proton Drive)
+
+Download the full dataset (all 4 CSVs) in one go:
+
+🔗 https://drive.proton.me/urls/YZXX8RKEEC#axcxe39gsLM4
+
+### Option B — Direct download (Google Cloud Storage)
+
+Fetch each CSV individually:
+
+- 🏢 [`company_dim.csv`](https://storage.googleapis.com/sql_de/company_dim.csv)
+- 🛠️ [`skills_dim.csv`](https://storage.googleapis.com/sql_de/skills_dim.csv)
+- 💼 [`job_postings_fact.csv`](https://storage.googleapis.com/sql_de/job_postings_fact.csv)
+- 🔗 [`skills_job_dim.csv`](https://storage.googleapis.com/sql_de/skills_job_dim.csv)
+
+> 💡 Quick download with `curl`:
+> ```bash
+> mkdir -p data && cd data
+> curl -O https://storage.googleapis.com/sql_de/company_dim.csv
+> curl -O https://storage.googleapis.com/sql_de/skills_dim.csv
+> curl -O https://storage.googleapis.com/sql_de/job_postings_fact.csv
+> curl -O https://storage.googleapis.com/sql_de/skills_job_dim.csv
+> ```
+
 ## 📝 Exercises
 
 ### Exercise 1 — Most in-demand skills for data engineers

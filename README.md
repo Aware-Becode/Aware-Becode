@@ -1,6 +1,96 @@
 # Aware-Becode
 
-Aware@Becode Exercices
+## 🚀 Git Workflow — Mini Tutorial
+
+This section walks you through the full collaboration flow used in this repo: clone, branch, commit, pull request, review, merge.
+
+### 1️⃣ Clone the repository
+
+Clone the repo to your local machine:
+
+```bash
+git clone https://github.com/Aware-Becode/Aware-Becode.git
+cd Aware-Becode
+```
+
+> 💡 If you have `gh` (GitHub CLI) installed and authenticated, you can also run:
+> `gh repo clone Aware-Becode/Aware-Becode`
+
+### 2️⃣ Create a feature branch
+
+Never work directly on `main`. Create a branch for your change:
+
+```bash
+git checkout main
+git pull                                  # always start from up-to-date main
+git checkout -b feat/my-exercise          # name reflects what you are doing
+```
+
+> 💡 **Branch naming convention**
+> - `feat/...` for a new feature or exercise
+> - `fix/...` for a bug fix
+> - `docs/...` for documentation only
+
+### 3️⃣ Commit your work locally
+
+Stage and commit your changes with a clear message:
+
+```bash
+git add path/to/file.sql                  # stage specific files
+git status                                # confirm what is staged
+git commit -m "feat(exercise-1): add top-10 in-demand skills query"
+```
+
+> 💡 **Commit message convention** (Conventional Commits): `type(scope): description`
+> Common types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`.
+
+### 4️⃣ Push your branch and open a Pull Request
+
+Push the branch to GitHub:
+
+```bash
+git push -u origin feat/my-exercise
+```
+
+Then open a Pull Request:
+
+- **Via GitHub website** — go to the repo on github.com, click the yellow banner "Compare & pull request" that appears, fill in title and description, click **Create pull request**.
+- **Via CLI** — `gh pr create --fill` (uses your last commit message) or `gh pr create` (opens an editor).
+
+A good PR includes:
+- A descriptive title.
+- A short **Summary** of what changed and why.
+- A **Test plan** explaining how to verify the change.
+
+### 5️⃣ Review a Pull Request
+
+When a classmate opens a PR, review it:
+
+1. On github.com, open the PR → tab **Files changed**.
+2. Read each change. Click any line to add an **inline comment**.
+3. At the top right, click **Review changes** and choose:
+   - **Comment** — leave feedback without blocking.
+   - **Approve** ✅ — the change looks good to merge.
+   - **Request changes** ❌ — something must be fixed before merging.
+4. Discuss in the **Conversation** tab until the author updates the PR.
+
+> 💡 You cannot approve your own PR — you need someone else to review yours.
+
+### 6️⃣ Merge into `main`
+
+Once the PR is approved and all comments are resolved:
+
+1. On the PR page, click **Merge pull request** → **Confirm merge**.
+2. Click **Delete branch** to keep the repo tidy.
+3. Locally, sync your `main`:
+
+```bash
+git checkout main
+git pull
+git branch -d feat/my-exercise            # remove the local branch
+```
+
+🎉 Your work is now on `main` and visible to everyone.
 
 ## 🧩 Problem & Context
 

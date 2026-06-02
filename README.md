@@ -12,7 +12,7 @@ Clone the repo to your local machine:
 git clone https://github.com/Aware-Becode/Aware-Becode.git
 cd Aware-Becode
 ```
-
+⚠️ Before committing anything, create a .gitignore and add your venv/ and data/ directories to it.
 > 💡 If you have `gh` (GitHub CLI) installed and authenticated, you can also run:
 > `gh repo clone Aware-Becode/Aware-Becode`
 

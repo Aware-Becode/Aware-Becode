@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def main()
+def main():
     urls = {
         "company_dim": "https://storage.googleapis.com/sql_de/company_dim.csv",
         "skills_dim": "https://storage.googleapis.com/sql_de/skills_dim.csv",

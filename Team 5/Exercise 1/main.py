@@ -1,5 +1,5 @@
 import pandas as pd
-# Importing pandas library
+import matplotlib.pyplot as plt
 
 company_df = pd.read_csv("./../data/company_dim.csv")
 job_postings_df = pd.read_csv("./../data/job_postings_fact.csv")
@@ -31,4 +31,10 @@ top10 = (
     .rename(columns={"count": "demand_count"})
 )
 
-print(top10)
+ax = top10.plot.bar(x="skills", y="demand_count", legend=False)
+ax.set_xlabel("Skills")
+ax.set_ylabel("Demand Count")
+ax.set_title("Top 10 Skills for Remote Data Engineers")
+plt.xticks(rotation=45, ha="right")
+plt.tight_layout()
+plt.show()

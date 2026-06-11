@@ -15,5 +15,5 @@ skills_job['salary'] = skills_job['salary_year_avg']
 
 skills_job['salary_mean'] = skills_job.groupby('skills')['salary'].transform('mean')
 
-print(skills_job.sort_values("salary_mean",ascending=False).drop_duplicates(subset="skills").head(10))
+print(skills_job.sort_values("salary_mean",ascending=False).drop_duplicates(subset="skills")[['skills','salary_mean']].head(10))
 

@@ -1,31 +1,25 @@
-import duckdb
+import pandas as pd
+import os
 
-con = duckdb.connect()
+os.chdir(os.path.join(os.path.dirname(__file__), "..", ".."))
 
-con.execute("""
-    CREATE VIEW jobs AS
-    SELECT * FROM read_csv_auto('data/job_postings_fact.csv', delim=';', header=true);
-""")
-con.execute("""
-    CREATE VIEW skills_job AS
-    SELECT * FROM read_csv_auto('data/skills_job_dim.csv', delim=';', header=true);
-""")
-con.execute("""
-    CREATE VIEW skills AS
-    SELECT * FROM read_csv_auto('data/skills_dim.csv', delim=';', header=true);
-""")
-result = con.execute("""
-    SELECT
-        s.skills,
-        COUNT(*) AS demand_count
-    FROM jobs j
-    JOIN skills_job sj ON j.job_id = sj.job_id
-    JOIN skills s      ON sj.skill_id = s.skill_id
-    WHERE j.job_title_short = 'Data Engineer'
-      AND j.job_work_from_home = true
-    GROUP BY s.skills
-    ORDER BY demand_count DESC
-    LIMIT 10
-""").df()
+jobs       = pd.read_csv("data/job_postings_fact.csv", sep=";")
+skills_job = pd.read_csv("data/skills_job_dim.csv", sep=";")
+skills     = pd.read_csv("data/skills_dim.csv", sep=";")
 
-print(result)
+remote_de = jobs[
+    (jobs["job_title_short"] == "Data Engineer")
+    & (jobs["job_work_from_home"] == True)
+]
+
+merged = remote_de.merge(skills_job, on="job_id").merge(skills, on="skill_id")
+
+top10 = (
+    merged.groupby("skills")["job_id"]
+    .count()
+    .reset_index(name="demand_count")
+    .sort_values("demand_count", ascending=False)
+    .head(10)
+)
+
+print(top10)

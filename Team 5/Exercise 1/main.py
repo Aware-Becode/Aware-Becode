@@ -1,17 +1,22 @@
 import pandas as pd
+# Importing pandas library
 
 company_df = pd.read_csv("./../data/company_dim.csv")
 job_postings_df = pd.read_csv("./../data/job_postings_fact.csv")
 skills_df = pd.read_csv("./../data/skills_dim.csv")
 skills_job_df = pd.read_csv("./../data/skills_job_dim.csv")
+# Reading each file and storing the content of each one in a DataFrame.
 
-# Searching for remote Data Engineer postings
+# Filter for remote Data Engineer job postings
 de_remote = job_postings_df[
     (job_postings_df["job_title_short"] == "Data Engineer") &
+    # Keep only job postings with the title "Data Engineer"
     (job_postings_df["job_work_from_home"] == True)
+    # And the ones where you can work at home.
 ][["job_id"]]
+# Keep only the job_id column after filtering
 
-# Now weare joining DE Skills with job table
+# Now we are joining DE Skills with job tables
 de_skills = de_remote.merge(skills_job_df, on="job_id")
 
 # Getting skills

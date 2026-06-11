@@ -2,9 +2,7 @@ import duckdb
 
 con = duckdb.connect()
 git add "Team 3/Exercise 1/"
-git status
-# Register the CSVs as tables. DuckDB reads them directly;
-# delim=';' handles the semicolon separator.
+git statusgit commit
 con.execute("""
     CREATE VIEW jobs AS
     SELECT * FROM read_csv_auto('data/job_postings_fact.csv', delim=';', header=true);

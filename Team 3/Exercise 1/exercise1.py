@@ -1,8 +1,7 @@
 import duckdb
 
 con = duckdb.connect()
-git add "Team 3/Exercise 1/"
-git statusgit commit
+
 con.execute("""
     CREATE VIEW jobs AS
     SELECT * FROM read_csv_auto('data/job_postings_fact.csv', delim=';', header=true);
